@@ -1,0 +1,24 @@
+{
+  "name": "colinmford-com",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npx eleventy",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinmford/colinmford-com.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/colinmford/colinmford-com/issues"
+  },
+  "homepage": "https://github.com/colinmford/colinmford-com#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
