@@ -1,0 +1,1 @@
+{"version":3,"file":"main.0b014798b3766569578a.js","mappings":"AAAAA,QAAQC,IAAI","sources":["webpack://colinmford-com/./src/assets/scripts/index.js"],"sourcesContent":["console.log('Hello world');\n"],"names":["console","log"],"sourceRoot":""}
