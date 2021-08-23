@@ -1,12 +1,9 @@
-lang: en
-name: Colin M. Ford, Designer
 title: Colin M. Ford, Designer
 author: Colin M. Ford
 jobTitle: Typeface Designer
 username: colinmford
 contact: hello@colinmford.com
 # see https://ogp.me/#types
-type: website
 url: https://colinmford.com
 image: https://avatars.githubusercontent.com/u/671409
 description: A barebone Eleventy and Webpack boilerplate 🎈.

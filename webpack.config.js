@@ -37,7 +37,16 @@ module.exports = {
     optimization: {
       minimizer: [
         new TerserPlugin(),
-        new CssMinimizerPlugin()
+        new CssMinimizerPlugin({
+          minimizerOptions: {
+            preset: [
+              "default",
+              {
+                discardComments: { removeAll: true },
+              },
+            ],
+          },
+        })
       ]
     }
   }),
