@@ -1,36 +1,45 @@
 <!DOCTYPE html>
-<html class="{{ htmlClass }}" lang="{{ site.lang }}">
+<html class="{{ htmlClass }}" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title or site.name}}{% endif %}</title>
-    
-    <meta name="title" content="{% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title or site.name}}{% endif %}">
+    <title>{% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title}}{% endif %}</title>
+
+    <meta name="title" content="{% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title}}{% endif %}">
     <meta name="author" content="{{ site.author }}" />
     <meta name="copyright" content="&copy; {{ build.timestamp | format("yyyy") }}, All Rights Reserved." />
     <meta name="distribution" content="Global" />
     <meta name="description" content="{{ description or site.description }}">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
     {# Open graph related #}
-    <meta property="og:title" content="{{ title or site.title or site.name }}" />
-    <meta property="og:type" content="{{ type or site.type }}" />
+    <meta property="og:title" content="{{ title or site.title }}" />
+    <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url or site.url }}" />
     <meta property="og:image" content="{{ image or site.image }}" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:site_name" content="{{ name or site.name }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="{{ name or site.title }}" />
     <meta property="og:description" content="{{ description or site.description }}" />
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ url or site.url }}">
-    <meta name="twitter:title" content="{{ title or site.title or site.name }}">
+    <meta name="twitter:title" content="{{ title or site.title }}">
     <meta name="twitter:description" content="{{ description or site.description }}">
     <meta name="twitter:image" content="{{ image or site.image }}">
     <meta name="twitter:site" content="@{{ site.username }}">
+    <meta name="twitter:creator" content="@{{ site.username }}">
 
     <link rel="profile" href="http://microformats.org/profile/hcard" />
 
     <script type="application/ld+json">
-      { "@context": "http://schema.org", "@type" : "Person", "name" : "{{ site.author }}", "jobTitle": "{{ site.jobTitle }}", "email" : "{{ site.contact }}" }
+      {
+        "@context": "http://schema.org",
+        "@type" : "Person",
+        "name" : "{{ site.author }}",
+        "jobTitle": "{{ site.jobTitle }}",
+        "email" : "{{ site.contact }}" }
     </script>
 
     <link rel="apple-touch-icon" href="/assets/icon.png">
@@ -38,10 +47,9 @@
     <meta name="theme-color" content="#fafafa">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link rel="manifest" href="/assets/manifest.json">
 
-    <link rel="stylesheet" href="{% webpack 'normalize.css' %}">
     <link rel="stylesheet" href="{% webpack 'main.css' %}">
   </head>
   <body class="{{ bodyClass }}">
@@ -53,7 +61,7 @@
       <p><a href="{{ site.url }}">{% icon "github" %}colinmford</a> - <time datetime="{{ build.timestamp | formatISO }}">{{ build.timestamp | format("dd LLL yyyy") }}</time></p>
     </footer>
     <script async defer src="{% webpack 'main.js' %}"></script>
-    
+
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
       window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date; ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
