@@ -1,4 +1,4 @@
+Sitemap: https://colinmford.com/sitemap.xml
+
 User-agent: *
 Disallow:
-
-Sitemap: https://colinmford.com/sitemap.xml
