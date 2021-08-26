@@ -39,7 +39,8 @@
         "@type" : "Person",
         "name" : "{{ site.author }}",
         "jobTitle": "{{ site.jobTitle }}",
-        "email" : "{{ site.contact }}" }
+        "email" : "{{ site.contact }}" 
+      }
     </script>
 
     <link rel="apple-touch-icon" href="/assets/icon.png">
@@ -62,10 +63,8 @@
     </footer>
     <script async defer src="{% webpack 'main.js' %}"></script>
 
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date; ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
-    <script async defer src="https://www.google-analytics.com/analytics.js"></script>
+    {# Global site tag (gtag.js) - Google Analytics #}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0F0Y2NSCQ"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-P0F0Y2NSCQ'); </script>
   </body>
 </html>
