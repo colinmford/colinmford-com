@@ -7,7 +7,7 @@ imageToAscii("/Users/colinmford/Downloads/IMG_0499.jpg", {
     size: {
       height: "100%"
     },
-    pixels: " .:*◆░▒▓"
+    pixels: " .:*-+#+−×÷=≠≈<>&%@░▒▓"
 }, (err, converted) => {
     console.log(err || converted);
 });
