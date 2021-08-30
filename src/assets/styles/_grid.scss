@@ -1,2 +1,15 @@
 // Spot Mono Grid
 // 600u wide, 1000upm
+@use 'sass:math';
+
+$FONT_SIZE: 15px;
+// (15pt * 600) / 1000 = 9pt wide grid
+$grid_size: math.div($FONT-SIZE * 600, 1000);
+
+@for $i from 40 through 200 {
+  @media (min-width: #{($i - 1) * $grid_size}) and (max-width: #{$i * $grid_size}) {
+    body {
+      background-color: rgb($i, $i, $i);
+    }
+  }
+}

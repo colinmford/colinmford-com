@@ -1,5 +1,6 @@
 @use 'normalize';
 @use 'fonts';
+@use 'grid';
 
 $bg: #09182d;
 $text: #fff;
@@ -8,43 +9,7 @@ html,
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  background-color: $bg;
+  // background-color: $bg;
   color: $text;
   font-family: 'Spot Mono', ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-}
-
-// A general comment that should be
-// stripped out in production
-body {
-  color: $blue;
-  background-color: $bg-body;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-main {
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-
-  img {
-    width: 6rem;
-  }
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.icon {
-  display: inline-block;
-  height: 1em;
-  width: 1em;
-  margin-right: 0.25em;
-  vertical-align: middle;
-  font-size: 1.5em;
-  fill: currentColor;
-  pointer-events: none;
 }
