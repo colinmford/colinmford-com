@@ -1,13 +1,16 @@
 @use 'normalize';
+@use 'fonts';
 
-$blue: darkslateblue;
-$bg-body: antiquewhite;
+$bg: #09182d;
+$text: #fff;
 
 html,
 body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: $bg;
+  color: $text;
+  font-family: 'Spot Mono', ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
 // A general comment that should be
