@@ -58,12 +58,12 @@ html,
 body {
   // text-rendering: optimizeLegibility;
   // -webkit-font-smoothing: antialiased;
-  // background-color: $bg;
+  background-color: $bg;
   font-family: 'Spot Mono', 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", Consolas, monospace;
   color: $text;
   font-weight: 300;
 }
 
-h1 {
-  font-weight: 300;
+pre {
+  line-height: 1;
 }
