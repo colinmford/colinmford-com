@@ -40,7 +40,6 @@
     "date-fns": "^2.23.0",
     "eleventy-plugin-error-overlay": "^0.1.2",
     "html-minifier": "^4.0.0",
-    "image-to-ascii": "^3.0.13",
     "js-yaml": "^3.14.1",
     "markdown-it": "^12.2.0",
     "markdown-it-anchor": "^8.1.2",
