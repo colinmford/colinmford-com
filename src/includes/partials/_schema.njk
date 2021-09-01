@@ -1,0 +1,11 @@
+    {# Schema, microformats #}
+    <link rel="profile" href="http://microformats.org/profile/hcard" />
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type" : "Person",
+        "name" : "{{ site.author }}",
+        "jobTitle": "{{ site.jobTitle }}",
+        "email" : "{{ site.contact }}" 
+        }
+    </script>
