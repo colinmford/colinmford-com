@@ -3,14 +3,15 @@
 // Spot Mono Grid
 // 600u wide, 1000upm
 // (15pt * 600) / 1000 = 9pt wide grid
-$grid_size: 0.6rem;
+$grid_width: 9px;
+$grid_height: 18px;
 
 /* Settings */
 :root {
-    --offset: $grid_size;
+    --offset: #{$grid_width};
     --columns: 6;
     --gutter: 0rem;
-    --baseline: 1rem;
+    --baseline: #{$grid_height};
     --baseline-shift: 0;
     // --baseline-shift: calc(var(--baseline) / 2);
     --line-thickness: 1px;
@@ -19,11 +20,11 @@ $grid_size: 0.6rem;
     --media-query: 'base';
   }
 
-  @for $i from 40 through 240 {
-    @media (min-width: #{$i * $grid_size}) {
-      :root {
-      --columns: #{$i};
-      --media-query: '#{$i}';
+@for $i from 40 through 240 {
+  @media (min-width: #{$i * $grid_width}) {
+    :root {
+    --columns: #{$i};
+    --media-query: '#{$i}';
     }
   }
 }
