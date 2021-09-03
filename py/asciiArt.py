@@ -55,18 +55,17 @@ def asciiToSVG(asciiImg):
         for j, c in enumerate(r):
             if c[1] != " ":
                 svg.add(svg.text(c[1],
-                        insert=(round(j*pitch, 3),
-                        round((i*lineHeight)+lineHeight), 3),
-                    fill='#%02x%02x%02x' % (interpolatedColor(c[0], 9, 235) + 20,
-                                            interpolatedColor(c[0], 24, 235) + 20,
-                                            interpolatedColor(c[0], 45, 235) + 20)))
+                        insert=(round(j*pitch, 3), round((i*lineHeight)+lineHeight), 3),
+                        fill='#%02x%02x%02x' % (interpolatedColor(c[0], 9, 235) + 20,
+                                                interpolatedColor(c[0], 24, 235) + 20,
+                                                interpolatedColor(c[0], 45, 235) + 20)))
     options = scour.sanitizeOptions()
     options.digits = 3
     options.remove_descriptive_elements = True
     options.enable_viewboxing = True
     options.newlines = False
     cleanSVG = scour.scourString(svg.tostring(), options=options)
-    with open("src/assets/images/test.svg", "w", encoding="utf-8") as f:
+    with open("src/assets/images/faces/face-%s.svg" % (str(cols)), "w", encoding="utf-8") as f:
         f.write(cleanSVG)
     # with gzip.open("py/test.svgz", "wb") as f:
     #     f.write(cleanSVG.encode("utf-8"))
@@ -77,7 +76,7 @@ def main():
     image = Image.fromarray(crop_image(image, tolerance=18))
     e = ImageEnhance.Brightness(image)
     image = e.enhance(1.025)
-    for wd in range(80, 81):
+    for wd in range(40, 81):
         resizedImg = resizeImg(image, width=wd)
         asciiImg = pixelToAscii(resizedImg)
         asciiToSVG(asciiImg)

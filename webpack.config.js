@@ -19,7 +19,7 @@ module.exports = {
   // https://github.com/webpack-contrib/css-loader
   devtool: isDev ? 'cheap-module-source-map' : 'source-map',
   entry: [
-    path.resolve(__dirname, 'src/assets/scripts/index.js'),
+    path.resolve(__dirname, 'src/assets/scripts/index.ts'),
     path.resolve(__dirname, 'src/assets/styles/index.scss')
   ],
   output: {
@@ -52,6 +52,11 @@ module.exports = {
   }),
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -86,6 +91,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
     alias: {
       // Helpful alias for importing assets
       assets: path.resolve(__dirname, 'src/assets')

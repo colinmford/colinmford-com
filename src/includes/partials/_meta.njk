@@ -1,0 +1,12 @@
+    {# Metadata #}
+    <meta name="title" content="{% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title}}{% endif %}">
+    <meta name="author" content="{{ site.author }}" />
+    <meta name="copyright" content="&copy; {{ build.timestamp | format("yyyy") }}, All Rights Reserved." />
+    <meta name="distribution" content="Global" />
+    <meta name="description" content="{{ description or site.description }}">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    <link rel="apple-touch-icon" href="/assets/icon.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+    <meta name="theme-color" content="#fafafa">
