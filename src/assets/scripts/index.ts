@@ -16,7 +16,13 @@ function portraitResizer() {
   let size: WindowSize = {width: window.innerWidth, height: window.innerHeight}
   let columns: number = Math.floor(size.width/gridWidth);
   let rows: number = Math.floor(size.height/gridHeight);
-  console.log("columns:", columns, "rows:", rows);
+  if (columns > 80) {
+    columns = 80;
+  } else if (columns < 40) {
+    columns = 40;
+  }
+  // <svg class="" role="img" aria-hidden="true" width="100%" height="100%"><use xlink:href="/assets/static/faces.svg#face-${columns}"></use></svg>
+  console.log(`http://localhost:8080/assets/static/faces/face-${columns}.svg`);
 }
 
 window.addEventListener("resize", () => {

@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <title>{% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
     {% include "../partials/_meta.njk" %}
 
     {% block headContent %}
-    {% endblock %} 
+    {% endblock %}
 
     <link rel="stylesheet" href="{% webpack 'main.css' %}">
   </head>
-  <body class="{{ bodyClass }}">
+  <body class="{{ bodyClass }}" id="{{ bodyID }}">
     {% include "../partials/_nav.njk" %}
-    
+
     {% block mainContent %}
     {% endblock %}
 
