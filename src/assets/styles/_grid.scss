@@ -6,11 +6,26 @@
 $grid_width: 9px;
 $grid_height: 18px;
 
+$faces_min: 12;
+$faces_max: 70;
+
+@function fibonacci($n) {
+  $fib: 0 1;
+  @for $i from 1 through $n {
+    $new: nth($fib, length($fib)) + nth($fib, length($fib) - 1);
+    $fib: append($fib, $new);
+  }
+  @return $fib;
+}
+
+$fib: fibonacci(20);
+
 /* Settings */
 :root {
     --offset: #{$grid_width};
     --columns: 6;
-    --gutter: 0rem;
+    --gutter: 0px;
+    --padding: #{$grid_width * 2};
     --baseline: #{$grid_height};
     --baseline-shift: 0;
     // --baseline-shift: calc(var(--baseline) / 2);
@@ -20,12 +35,19 @@ $grid_height: 18px;
     --media-query: 'base';
   }
 
-@for $i from 40 through 240 {
+@for $i from 40 through 300 {
   @media (min-width: #{$i * $grid_width}) {
     :root {
     --columns: #{$i};
     --media-query: '#{$i}';
-    }
+    $p: math.clamp(4, math.floor(math.div($i,40)) + 3, 20);
+    --padding: #{nth($fib, $p) * $grid_width};
+    $main: $i - $p;
+    $face_width: math.clamp($faces_min, math.floor(math.div($main,3)*2), $faces_max) * $grid_width;
+    --face-cols: #{math.div($face-width, $grid-width)};
+    --face-width: #{$face_width};
+    --face-height: #{math.floor(math.div($face_width, 0.62))}; // temp, for mocking. Needs to be automatic, not all have same aspect ratio??
+  }
   }
 }
 
@@ -55,6 +77,18 @@ $grid_height: 18px;
   );
 }
 
+main {
+  margin-left: auto;
+  padding-left: var(--padding);
+  margin-right: auto;
+  padding-right: var(--padding);
+  display: block;
+  #face {
+    width: var(--face-width);
+    height: var(--face-height);
+  }
+}
+
 html {
   position: relative;
 }
@@ -64,7 +98,7 @@ html::before {
   top: 0; right: 0; bottom: 0; left: 0;
   margin-right: auto;
   margin-left: auto;
-  width: calc(100% - (2 * var(--offset)));
+  width: 100%;
   min-height: 100vh;
   content: '';
   background-image: var(--background-columns), var(--background-baseline);
@@ -77,8 +111,9 @@ html::before {
 html::after {
   content: var(--media-query);
   position: fixed;
-  top: 1rem;
+  bottom: 1rem;
   left: 1rem;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   color: var(--color-text);
+  z-index: 1001;
 }
