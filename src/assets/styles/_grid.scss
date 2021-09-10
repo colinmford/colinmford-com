@@ -5,9 +5,10 @@
 // (15pt * 600) / 1000 = 9pt wide grid
 $grid_width: 9px;
 $grid_height: 18px;
+$nav_rows: 2;
 
-$faces_min: 12;
-$faces_max: 70;
+$faces_min: 30;
+$faces_max: 60;
 
 @function fibonacci($n) {
   $fib: 0 1;
@@ -33,23 +34,32 @@ $fib: fibonacci(20);
     --color: #1c2c42;
     --color-text: #fff;
     --media-query: 'base';
+    --nav-height: #{$nav_rows * $grid_height};
   }
 
-@for $i from 40 through 300 {
+@for $i from 20 through 300 {
   @media (min-width: #{$i * $grid_width}) {
     :root {
-    --columns: #{$i};
-    --media-query: '#{$i}';
-    $p: math.clamp(4, math.floor(math.div($i,40)) + 3, 20);
-    --padding: #{nth($fib, $p) * $grid_width};
-    $main: $i - $p;
-    $face_width: math.clamp($faces_min, math.floor(math.div($main,3)*2), $faces_max) * $grid_width;
-    --face-cols: #{math.div($face-width, $grid-width)};
-    --face-width: #{$face_width};
-    --face-height: #{math.floor(math.div($face_width, 0.62))}; // temp, for mocking. Needs to be automatic, not all have same aspect ratio??
-  }
+      --columns: #{$i};
+      $p: math.clamp(4, math.floor(math.div($i,40)) + 3, 20);
+      --padding: #{nth($fib, $p) * $grid_width};
+      $main: $i - $p;
+    }
   }
 }
+
+@for $i from 3 through 100 {
+  @media (min-height: #{$i * $grid_height}) {
+    :root {
+      --media-query: '#{$i}';
+      $face_height: math.clamp($faces_min, $i - 3, $faces_max) * $grid_height;
+      $faces_rows: math.div($face_height, $grid_height);
+      --face-url: url("../faces/face-#{$faces_rows}.svg");
+      --face-height: #{$face_height};
+    }
+  }
+}
+
 
 
 /* Helper variables */
@@ -77,43 +87,55 @@ $fib: fibonacci(20);
   );
 }
 
+nav {
+  position: relative;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+  margin: 0;
+  height: var(--nav-height);
+}
+
 main {
+  margin-top: #{$grid_height};
   margin-left: auto;
   padding-left: var(--padding);
   margin-right: auto;
   padding-right: var(--padding);
   display: block;
   #face {
-    width: var(--face-width);
+    width: auto;
     height: var(--face-height);
+    background-image: var(--face-url);
+    background-repeat: no-repeat;
   }
 }
 
 html {
   position: relative;
+  margin-top: #{ 0.5 * $grid_height};
 }
 
-html::before {
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
-  min-height: 100vh;
-  content: '';
-  background-image: var(--background-columns), var(--background-baseline);
-  background-size: var(--background-width) 100%;
-  background-position: 0 var(--baseline-shift);
-  z-index: 1000;
-  pointer-events: none;
-}
+// html::before {
+//   position: absolute;
+//   top: 0; right: 0; bottom: 0; left: 0;
+//   margin-right: auto;
+//   margin-left: auto;
+//   width: 100%;
+//   min-height: 100vh;
+//   content: '';
+//   background-image: var(--background-columns), var(--background-baseline);
+//   background-size: var(--background-width) 100%;
+//   background-position: 0 var(--baseline-shift);
+//   z-index: 1000;
+//   pointer-events: none;
+// }
 
-html::after {
-  content: var(--media-query);
-  position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  color: var(--color-text);
-  z-index: 1001;
-}
+// html::after {
+//   content: var(--media-query);
+//   position: fixed;
+//   bottom: 1rem;
+//   left: 1rem;
+//   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+//   color: var(--color-text);
+//   z-index: 1001;
+// }
