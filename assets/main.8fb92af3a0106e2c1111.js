@@ -1,0 +1,2 @@
+!function(){function o(){var o=window.innerWidth,n=window.innerHeight,t=Math.floor(o/9);Math.floor(n/18),t>80?t=80:t<40&&(t=40),console.log("http://localhost:8080/assets/static/faces/face-"+t+".svg")}console.log("Hello World!"),window.addEventListener("resize",(function(){o()})),o()}();
+//# sourceMappingURL=main.8fb92af3a0106e2c1111.js.map
