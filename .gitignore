@@ -18,3 +18,7 @@ yarn-error.log*
 
 # Artefacts
 .DS_Store
+
+# python
+*.pyc
+.venv
