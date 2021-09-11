@@ -79,6 +79,7 @@ def asciiToSVG(asciiImg, location, fontPath):
     svg = svgwrite.Drawing()
     svg.viewbox(minx=0, miny=0, width=ceil(cols*pitch), height=ceil(rows*lineHeight))
     svg.embed_font("S", fontPath)
+    svg.fit(horiz="left", vert="top", scale="slice")
 #     svg.embed_stylesheet("""@font-face {
 #   font-family: "Spot Mono";
 #   src: url(/assets/fonts/SpotMono-Light.woff) format("woff");
