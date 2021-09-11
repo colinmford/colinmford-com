@@ -1,6 +1,6 @@
 @use 'normalize';
 @use 'fonts';
-// @use 'grid';
+@use 'grid';
 
 $bg: #09182d;
 $text: #fff;
@@ -66,6 +66,9 @@ body {
   line-height: 1.2;
 }
 
-pre {
-  line-height: 1;
-}
+
+// #home {
+//   #face {
+//     background-color: peachpuff;
+//   }
+// }

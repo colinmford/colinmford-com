@@ -1,5 +1,8 @@
+Brotli==1.0.9
+fonttools==4.26.2
 numpy==1.21.2
-Pillow==8.3.1
+Pillow==8.3.2
 scour==0.38.2
 six==1.16.0
 svgwrite==1.4.1
+zopfli==0.1.8

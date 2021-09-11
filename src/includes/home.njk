@@ -1,0 +1,16 @@
+{% extends "./templates/_base.njk" %}
+
+{% block headContent %}
+  {% include "./partials/_social.njk" %}
+  {% include "./partials/_schema.njk" %}
+{% endblock %}
+
+{% block mainContent %}
+    
+    <main>
+      <div id="face"></div>
+      {{ content | safe }}
+    </main>
+
+    <script async defer src="{% webpack 'main.js' %}"></script>
+{% endblock %}
