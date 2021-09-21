@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% block mainContent %}
-    
+
     <main>
       <div id="face"></div>
-      {{ content | safe }}
+      <div>{{ content | safe }}</div>
     </main>
 
     <script async defer src="{% webpack 'main.js' %}"></script>
