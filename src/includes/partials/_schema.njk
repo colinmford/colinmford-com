@@ -1,11 +1,20 @@
     {# Schema, microformats #}
     <link rel="profile" href="http://microformats.org/profile/hcard" />
-    <script type="application/ld+json">
+    <script data-schema="Person" type="application/ld+json">
         {
-        "@context": "http://schema.org",
-        "@type" : "Person",
-        "name" : "{{ site.author }}",
-        "jobTitle": "{{ site.jobTitle }}",
-        "email" : "{{ site.contact }}" 
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "{{ site.author }}",
+            "disambiguatingDescription": "{{ site.jobTitle }}",
+            "jobTitle": "{{ site.jobTitle }}",
+            "email": "{{ site.contact }}",
+            "image": "{{ site.image }}",
+            "url": "{{ site.url }}",
+            "sameAs": [
+                "https://twitter.com/{{ site.username }}",
+                "https://github.com/{{ site.username }}",
+                "https://www.instagram.com/{{ site.username }}",
+                "https://www.linkedin.com/in/{{ site.username }}",
+            ] 
         }
     </script>
