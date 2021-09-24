@@ -9,7 +9,6 @@ from scour import scour
 from fontTools.subset import main as subsetMain
 
 
-# TODO: Analize glyphs in font for % area coverage
 ASCII_CHARS = [" ", ".", ":", "−", "÷", "+", "×", "=", "*", "&", "%", "#", "@", "░", "▒", "▒"]  # Sorted in order of coverage
 
 
@@ -28,7 +27,7 @@ def subsetFont(url):
     fontPath = os.path.join(os.path.dirname(__file__), "temp.woff2")
     subsetMain([os.path.abspath(url),
           "--text=%s" % "".join(ASCII_CHARS),
-          "--output-file=%s" % os.path.join(os.path.dirname(__file__), "temp.woff2"),
+          "--output-file=%s" % fontPath,
           "--flavor=woff2",
           "--layout-features=''",
           "--layout-scripts=''",

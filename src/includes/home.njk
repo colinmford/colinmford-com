@@ -8,8 +8,38 @@
 {% block mainContent %}
 
     <main>
-      <div id="face"></div>
-      <div>{{ content | safe }}</div>
+      <div class="column left-column">
+        <div id="bio" class="vcard h-card" itemscope itemtype="http://schema.org/Person">{{ content | safe }}</div>
+      </div>
+      <div class="column right-column">
+        <div id="work">
+          {# this is temp, to be made with javascript, or 11ty? #}
+          <ul>
+            <li>
+              <a class="work-entry">
+                <span class="date">2020</span>
+                <span class="foundry">H&amp;Co.</span>
+                <span class="typeface">Sagittarius</span>
+              </a>
+            </li>
+            <li>
+              <a class="work-entry">
+                <span class="date">2020</span>
+                <span class="foundry">H&amp;Co.</span>
+                <span class="typeface">Sagittarius</span>
+              </a>
+            </li>
+            <li>
+              <a class="work-entry">
+                <span class="date">2020</span>
+                <span class="foundry">H&amp;Co.</span>
+                <span class="typeface">Sagittarius</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </main>
 
     <script async defer src="{% webpack 'main.js' %}"></script>
