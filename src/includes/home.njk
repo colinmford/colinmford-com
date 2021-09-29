@@ -15,27 +15,15 @@
         <div id="work">
           {# this is temp, to be made with javascript, or 11ty? #}
           <ul>
+          {% for project in projects %}
             <li>
               <a class="work-entry">
-                <span class="date">2020</span>
-                <span class="foundry">H&amp;Co.</span>
-                <span class="typeface">Sagittarius</span>
+                <span class="date">{{ project["year"] }}</span>
+                <span class="foundry">{{ project["foundry"] }}</span>
+                <span class="typeface">{{ project["name"] }}</span>
               </a>
             </li>
-            <li>
-              <a class="work-entry">
-                <span class="date">2020</span>
-                <span class="foundry">H&amp;Co.</span>
-                <span class="typeface">Sagittarius</span>
-              </a>
-            </li>
-            <li>
-              <a class="work-entry">
-                <span class="date">2020</span>
-                <span class="foundry">H&amp;Co.</span>
-                <span class="typeface">Sagittarius</span>
-              </a>
-            </li>
+          {% endfor %}
           </ul>
         </div>
       </div>
