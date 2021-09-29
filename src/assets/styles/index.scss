@@ -1,6 +1,6 @@
 @use 'normalize';
 @use 'fonts';
-@use 'grid';
+// @use 'grid';
 
 $bg: #09182d;
 $text: #fff;
@@ -66,6 +66,33 @@ body {
   line-height: 1.2;
 }
 
+p {
+  a {
+    font-weight: 500;
+    text-decoration: none;
+    &:link, &:visited, &:active {
+        color: #fff;
+        background-color: none;
+        border-bottom: 3px #fff solid;
+    }
+    &:hover, &:hover:visited, &:visited:hover {
+        border-bottom: none;
+        background-color: #fff;
+        color: #09182d;
+        text-decoration: none;
+    }
+  }
+}
+
+.icon {
+  fill: $text;
+}
+
+#home {
+  main {
+    display: flex;
+  }
+}
 
 // #home {
 //   #face {

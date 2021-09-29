@@ -29,7 +29,6 @@ module.exports = {
           const href = $(link).attr('href');
           if (!/https{0,1}:\/\//.test(href)) return;
 
-          $(link).attr('rel', 'noopener noreferrer');
           $(link).attr('target', '_blank');
           $(link).replaceWith($.html(link));
         });

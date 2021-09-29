@@ -1,4 +1,9 @@
     <footer>
+        <ul class="social-list">
+        {% for platform, url in site.social %}
+           <li><a href="{{ url }}" rel="me">{% icon platform %}</a></li>
+        {% endfor %}
+        </ul>
     </footer>
 
     {# Global site tag (gtag.js) - Google Analytics #}
